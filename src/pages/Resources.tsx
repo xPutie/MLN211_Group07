@@ -9,26 +9,32 @@ import Footer from "@/components/Footer";
 const resources = [
   {
     title: "Tư bản – Karl Marx (Das Kapital)",
-    description: "Tác phẩm kinh điển trình bày lý luận giá trị, lao động và giá trị thặng dư.",
+    description:
+      "Tác phẩm kinh điển trình bày lý luận giá trị, lao động và giá trị thặng dư.",
     url: "https://www.marxists.org/archive/marx/works/download/pdf/Capital-Volume-I.pdf",
   },
   {
     title: "Chiến lược phát triển nguồn nhân lực Việt Nam đến năm 2030",
-    description: "Văn kiện chính thức của Chính phủ Việt Nam về phát triển nhân lực trong thời đại 4.0.",
+    description:
+      "Văn kiện chính thức của Chính phủ Việt Nam về phát triển nhân lực trong thời đại 4.0.",
     url: "https://thuvienphapluat.vn/van-ban/bo-may-hanh-chinh/Quyet-dinh-176-QD-TTg-2021-Chien-luoc-phat-trien-nhan-luc-Viet-Nam-2030-tam-nhin-2045-470207.aspx",
   },
   {
-    title: "Tác động của trí tuệ nhân tạo đến việc làm và chính sách xã hội ở Việt Nam",
+    title:
+      "Tác động của trí tuệ nhân tạo đến việc làm và chính sách xã hội ở Việt Nam",
     description: "Phân tích học thuật về AI và thị trường lao động Việt Nam.",
     url: "https://vjol.info.vn/index.php/vjss/article/view/64055",
   },
   {
-    title: "Cách mạng công nghiệp 4.0 và vấn đề con người trong triết học Mác – Lênin",
-    description: "Liên hệ lý luận Mác với bản chất lao động trong thời đại tự động hóa.",
+    title:
+      "Cách mạng công nghiệp 4.0 và vấn đề con người trong triết học Mác – Lênin",
+    description:
+      "Liên hệ lý luận Mác với bản chất lao động trong thời đại tự động hóa.",
     url: "https://lyluanchinhtri.vn/home/index.php/thuc-tien/item/4226",
   },
   {
-    title: "Trí tuệ nhân tạo và phát triển nguồn nhân lực chất lượng cao ở Việt Nam",
+    title:
+      "Trí tuệ nhân tạo và phát triển nguồn nhân lực chất lượng cao ở Việt Nam",
     description: "Vai trò giáo dục và sáng tạo trong bối cảnh AI phát triển.",
     url: "https://tapchigiaoduc.moet.gov.vn/tap-chi-giao-duc/tri-tue-nhan-tao-va-phat-trien-nguon-nhan-luc-chat-luong-cao-o-viet-nam-6266.html",
   },
@@ -94,7 +100,7 @@ const Resources = () => {
             index++;
 
             // pause nhẹ khi gặp dấu chấm hoặc phẩy
-            const delay = (char === "." || char === ",") ? 150 : 25;
+            const delay = char === "." || char === "," ? 150 : 25;
             setTimeout(typeNext, delay);
           }
         };
@@ -139,7 +145,9 @@ const Resources = () => {
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <h3 className="font-semibold text-lg mb-2">{r.title}</h3>
-                      <p className="text-sm text-muted-foreground">{r.description}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {r.description}
+                      </p>
                     </div>
                     <Button variant="ghost" size="icon" asChild>
                       <a href={r.url} target="_blank" rel="noopener noreferrer">
@@ -161,7 +169,8 @@ const Resources = () => {
           <Card className="p-10 shadow-xl border border-border/70 bg-gradient-to-b from-card/80 to-background/60 backdrop-blur-md">
             <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
               Chọn một câu hỏi bên dưới để thảo luận cùng{" "}
-              <span className="font-semibold text-primary">MarxBot</span> – trí tuệ nhân tạo mô phỏng tư duy triết học của C. Mác.
+              <span className="font-semibold text-primary">MarxBot</span> – trí
+              tuệ nhân tạo mô phỏng tư duy triết học của C. Mác.
             </p>
 
             {/* DANH SÁCH CÂU HỎI */}
@@ -192,20 +201,25 @@ const Resources = () => {
                   <div className="w-10 h-10 flex items-center justify-center rounded-full bg-primary/20 shadow-sm">
                     <Bot className="w-5 h-5 text-primary" />
                   </div>
-                  <div className="flex-1 relative overflow-hidden rounded-2xl border border-primary/50 p-5 shadow-inner bg-gradient-to-r from-primary/5 to-accent/5
-                    before:absolute before:inset-0 before:rounded-2xl before:border-2 before:border-primary/40 before:animate-glow before:blur-[4px] before:opacity-40">
+                  <div
+                    className="flex-1 relative overflow-hidden rounded-2xl border border-primary/50 p-5 shadow-inner bg-gradient-to-r from-primary/5 to-accent/5
+                    before:absolute before:inset-0 before:rounded-2xl before:border-2 before:border-primary/40 before:animate-glow before:blur-[4px] before:opacity-40"
+                  >
                     <p className="text-sm text-muted-foreground font-semibold mb-1">
                       MarxBot trả lời:
                     </p>
                     {isThinking ? (
                       <p className="italic text-muted-foreground flex items-center gap-2">
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        MarxBot đang suy nghĩ<span className="animate-pulse ml-1">▍</span>
+                        MarxBot đang suy nghĩ
+                        <span className="animate-pulse ml-1">▍</span>
                       </p>
                     ) : (
                       <p className="text-base leading-relaxed text-foreground font-serif whitespace-pre-line">
                         {typedAnswer}
-                        <span className="animate-pulse ml-1 text-primary">▍</span>
+                        <span className="animate-pulse ml-1 text-primary">
+                          ▍
+                        </span>
                       </p>
                     )}
                   </div>
@@ -229,8 +243,11 @@ const Resources = () => {
             {/* TRÍCH DẪN */}
             <div className="mt-10 pt-6 border-t border-border/60">
               <p className="text-center text-base italic text-muted-foreground leading-relaxed">
-                “Máy móc không thay thế con người — nó khiến ta nhận ra sâu sắc hơn bản chất sáng tạo của lao động.”
-                <span className="block mt-1 text-sm text-accent">– Diễn giải tư tưởng C. Mác</span>
+                “Máy móc không thay thế con người — nó khiến ta nhận ra sâu sắc
+                hơn bản chất sáng tạo của lao động.”
+                <span className="block mt-1 text-sm text-accent">
+                  – Diễn giải tư tưởng C. Mác
+                </span>
               </p>
             </div>
           </Card>

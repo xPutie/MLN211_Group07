@@ -7,8 +7,7 @@ import { LayoutGrid, Play } from "lucide-react";
 const Discussion = () => {
   const [viewMode, setViewMode] = useState<"board" | "slideshow">("board");
 
-  const padletBoard =
-    "https://padlet.com/embed/5vyvx1jp12elgna7";
+  const padletBoard = "https://padlet.com/embed/5vyvx1jp12elgna7";
   const padletSlideshow =
     "https://padlet.com/embed/5vyvx1jp12elgna7/slideshow?autoplay=1&loop=1&duration=auto";
 
@@ -23,8 +22,8 @@ const Discussion = () => {
         </h1>
 
         <p className="text-blue-200 mb-10 max-w-2xl animate-fade-in">
-          💬 Đây là bảng thảo luận Padlet của lớp — xem, phản hồi và bình luận câu hỏi từ các nhóm trực tiếp
-          ngay trên web, không cần chuyển tab.
+          💬 Đây là bảng thảo luận Padlet của lớp — xem, phản hồi và bình luận
+          câu hỏi từ các nhóm trực tiếp ngay trên web, không cần chuyển tab.
         </p>
 
         {/* Nút chuyển chế độ */}
@@ -57,9 +56,7 @@ const Discussion = () => {
         </div>
 
         {/* Khung hiển thị */}
-        <div
-          className="w-full max-w-6xl aspect-[16/9] rounded-2xl overflow-hidden border border-blue-400/30 presentation-glow shadow-xl backdrop-blur-lg transition-all duration-700"
-        >
+        <div className="w-full max-w-6xl aspect-[16/9] rounded-2xl overflow-hidden border border-blue-400/30 presentation-glow shadow-xl backdrop-blur-lg transition-all duration-700">
           <iframe
             src={viewMode === "board" ? padletBoard : padletSlideshow}
             width="100%"
@@ -70,7 +67,8 @@ const Discussion = () => {
         </div>
 
         <p className="mt-6 text-sm text-blue-100/70 border-t pt-4 max-w-2xl">
-          ⏳ Lưu ý: Bảng thảo luận có thể mất vài giây để tải tùy vào tốc độ mạng của bạn.
+          ⏳ Lưu ý: Bảng thảo luận có thể mất vài giây để tải tùy vào tốc độ
+          mạng của bạn.
         </p>
       </main>
 

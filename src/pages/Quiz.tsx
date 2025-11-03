@@ -8,21 +8,147 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const questions = [
-  { id: 1, question: "Theo Marx, giá trị của hàng hóa được quyết định bởi?", options: ["Giá cả thị trường", "Thời gian lao động xã hội cần thiết", "Cung cầu", "Chi phí sản xuất"] },
-  { id: 2, question: "Lao động cụ thể khác với lao động trừu tượng ở điểm nào?", options: ["Không khác", "Lao động cụ thể tạo giá trị sử dụng, trừu tượng tạo giá trị", "Lao động trừu tượng năng suất cao hơn", "Lao động cụ thể là lao động trí óc"] },
-  { id: 3, question: "Giá trị thặng dư là gì?", options: ["Phần lợi nhuận của doanh nghiệp", "Phần giá trị công nhân tạo ra vượt giá trị sức lao động", "Thuế nhà nước thu", "Tiền thưởng thêm"] },
-  { id: 4, question: "AI đóng vai trò gì trong quá trình sản xuất hiện đại?", options: ["Tạo giá trị mới độc lập", "Công cụ hỗ trợ lao động sáng tạo của con người", "Thay thế hoàn toàn lao động", "Giảm nhu cầu lao động"] },
-  { id: 5, question: "Theo Marx, bản chất con người được thể hiện qua?", options: ["Công cụ lao động", "Tôn giáo", "Lao động", "Ngôn ngữ"] },
-  { id: 6, question: "Lao động sáng tạo có vai trò gì trong kỷ nguyên AI?", options: ["Giảm dần tầm quan trọng", "Là yếu tố không thể thay thế", "Bị thay thế bởi robot", "Chỉ dành cho chuyên gia"] },
-  { id: 7, question: "Theo Marx, máy móc trong sản xuất có chức năng chính là?", options: ["Tạo giá trị mới", "Chuyển giá trị cũ vào sản phẩm", "Thay thế giá trị lao động", "Tăng chi phí sản xuất"] },
-  { id: 8, question: "Lao động trong nền kinh tế tri thức có đặc điểm gì?", options: ["Phụ thuộc vào sức cơ bắp", "Dựa vào sáng tạo và tri thức", "Không cần công nghệ", "Thiếu tính xã hội"] },
-  { id: 9, question: "AI thay đổi khái niệm lao động như thế nào?", options: ["Xóa bỏ lao động", "Mở rộng khái niệm lao động sáng tạo", "Không ảnh hưởng", "Giảm năng suất"] },
-  { id: 10, question: "Theo Mác, của cải xã hội bắt nguồn từ?", options: ["Tiền tệ", "Lao động của con người", "Máy móc", "Vốn tư bản"] },
-  { id: 11, question: "Mục tiêu cao nhất của chủ nghĩa xã hội theo Hồ Chí Minh là?", options: ["Phát triển quân đội", "Xóa bỏ nghèo nàn, mang lại ấm no hạnh phúc cho nhân dân", "Tăng trưởng GDP", "Phát triển công nghệ"] },
-  { id: 12, question: "Trong xã hội hiện đại, yếu tố nào giúp con người khác biệt với AI?", options: ["Trí nhớ", "Cảm xúc và đạo đức", "Khả năng tính toán", "Tốc độ xử lý"] },
-  { id: 13, question: "Công nghiệp 4.0 tác động gì đến người lao động?", options: ["Tăng thất nghiệp, giảm cơ hội học tập", "Đòi hỏi kỹ năng sáng tạo và tư duy phản biện", "Không ảnh hưởng đáng kể", "Giảm năng suất"] },
-  { id: 14, question: "Theo Marx, lao động bị tha hóa khi?", options: ["Người lao động làm vì đam mê", "Lao động trở thành hàng hóa, xa lạ với chính mình", "Người lao động được tự do sáng tạo", "Làm việc tập thể"] },
-  { id: 15, question: "Trí tuệ nhân tạo nên được hiểu là?", options: ["Một công cụ trung lập phản ánh trình độ phát triển của con người", "Một thực thể độc lập có ý thức", "Nguy cơ xóa bỏ nhân loại", "Một xu hướng nhất thời"] },
+  {
+    id: 1,
+    question: "Theo Marx, giá trị của hàng hóa được quyết định bởi?",
+    options: [
+      "Giá cả thị trường",
+      "Thời gian lao động xã hội cần thiết",
+      "Cung cầu",
+      "Chi phí sản xuất",
+    ],
+  },
+  {
+    id: 2,
+    question: "Lao động cụ thể khác với lao động trừu tượng ở điểm nào?",
+    options: [
+      "Không khác",
+      "Lao động cụ thể tạo giá trị sử dụng, trừu tượng tạo giá trị",
+      "Lao động trừu tượng năng suất cao hơn",
+      "Lao động cụ thể là lao động trí óc",
+    ],
+  },
+  {
+    id: 3,
+    question: "Giá trị thặng dư là gì?",
+    options: [
+      "Phần lợi nhuận của doanh nghiệp",
+      "Phần giá trị công nhân tạo ra vượt giá trị sức lao động",
+      "Thuế nhà nước thu",
+      "Tiền thưởng thêm",
+    ],
+  },
+  {
+    id: 4,
+    question: "AI đóng vai trò gì trong quá trình sản xuất hiện đại?",
+    options: [
+      "Tạo giá trị mới độc lập",
+      "Công cụ hỗ trợ lao động sáng tạo của con người",
+      "Thay thế hoàn toàn lao động",
+      "Giảm nhu cầu lao động",
+    ],
+  },
+  {
+    id: 5,
+    question: "Theo Marx, bản chất con người được thể hiện qua?",
+    options: ["Công cụ lao động", "Tôn giáo", "Lao động", "Ngôn ngữ"],
+  },
+  {
+    id: 6,
+    question: "Lao động sáng tạo có vai trò gì trong kỷ nguyên AI?",
+    options: [
+      "Giảm dần tầm quan trọng",
+      "Là yếu tố không thể thay thế",
+      "Bị thay thế bởi robot",
+      "Chỉ dành cho chuyên gia",
+    ],
+  },
+  {
+    id: 7,
+    question: "Theo Marx, máy móc trong sản xuất có chức năng chính là?",
+    options: [
+      "Tạo giá trị mới",
+      "Chuyển giá trị cũ vào sản phẩm",
+      "Thay thế giá trị lao động",
+      "Tăng chi phí sản xuất",
+    ],
+  },
+  {
+    id: 8,
+    question: "Lao động trong nền kinh tế tri thức có đặc điểm gì?",
+    options: [
+      "Phụ thuộc vào sức cơ bắp",
+      "Dựa vào sáng tạo và tri thức",
+      "Không cần công nghệ",
+      "Thiếu tính xã hội",
+    ],
+  },
+  {
+    id: 9,
+    question: "AI thay đổi khái niệm lao động như thế nào?",
+    options: [
+      "Xóa bỏ lao động",
+      "Mở rộng khái niệm lao động sáng tạo",
+      "Không ảnh hưởng",
+      "Giảm năng suất",
+    ],
+  },
+  {
+    id: 10,
+    question: "Theo Mác, của cải xã hội bắt nguồn từ?",
+    options: ["Tiền tệ", "Lao động của con người", "Máy móc", "Vốn tư bản"],
+  },
+  {
+    id: 11,
+    question: "Mục tiêu cao nhất của chủ nghĩa xã hội theo Hồ Chí Minh là?",
+    options: [
+      "Phát triển quân đội",
+      "Xóa bỏ nghèo nàn, mang lại ấm no hạnh phúc cho nhân dân",
+      "Tăng trưởng GDP",
+      "Phát triển công nghệ",
+    ],
+  },
+  {
+    id: 12,
+    question:
+      "Trong xã hội hiện đại, yếu tố nào giúp con người khác biệt với AI?",
+    options: [
+      "Trí nhớ",
+      "Cảm xúc và đạo đức",
+      "Khả năng tính toán",
+      "Tốc độ xử lý",
+    ],
+  },
+  {
+    id: 13,
+    question: "Công nghiệp 4.0 tác động gì đến người lao động?",
+    options: [
+      "Tăng thất nghiệp, giảm cơ hội học tập",
+      "Đòi hỏi kỹ năng sáng tạo và tư duy phản biện",
+      "Không ảnh hưởng đáng kể",
+      "Giảm năng suất",
+    ],
+  },
+  {
+    id: 14,
+    question: "Theo Marx, lao động bị tha hóa khi?",
+    options: [
+      "Người lao động làm vì đam mê",
+      "Lao động trở thành hàng hóa, xa lạ với chính mình",
+      "Người lao động được tự do sáng tạo",
+      "Làm việc tập thể",
+    ],
+  },
+  {
+    id: 15,
+    question: "Trí tuệ nhân tạo nên được hiểu là?",
+    options: [
+      "Một công cụ trung lập phản ánh trình độ phát triển của con người",
+      "Một thực thể độc lập có ý thức",
+      "Nguy cơ xóa bỏ nhân loại",
+      "Một xu hướng nhất thời",
+    ],
+  },
 ];
 
 export default function Quiz() {
@@ -32,7 +158,7 @@ export default function Quiz() {
   const [direction, setDirection] = useState(1);
 
   const handleAnswer = (answerIndex: number) => {
-    setAnswers(prev => ({ ...prev, [questions[current].id]: answerIndex }));
+    setAnswers((prev) => ({ ...prev, [questions[current].id]: answerIndex }));
   };
 
   const nextQuestion = () => {
@@ -85,15 +211,25 @@ export default function Quiz() {
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
                   <Card className="p-6 shadow-sm">
-                    <h2 className="text-xl font-semibold mb-4">{questions[current].question}</h2>
+                    <h2 className="text-xl font-semibold mb-4">
+                      {questions[current].question}
+                    </h2>
                     <RadioGroup
                       value={answers[questions[current].id]?.toString()}
-                      onValueChange={val => handleAnswer(parseInt(val))}
+                      onValueChange={(val) => handleAnswer(parseInt(val))}
                     >
                       {questions[current].options.map((opt, idx) => (
-                        <div key={idx} className="flex items-center space-x-2 p-3 rounded-lg hover:bg-muted cursor-pointer">
-                          <RadioGroupItem value={idx.toString()} id={`opt-${idx}`} />
-                          <Label htmlFor={`opt-${idx}`} className="flex-1">{opt}</Label>
+                        <div
+                          key={idx}
+                          className="flex items-center space-x-2 p-3 rounded-lg hover:bg-muted cursor-pointer"
+                        >
+                          <RadioGroupItem
+                            value={idx.toString()}
+                            id={`opt-${idx}`}
+                          />
+                          <Label htmlFor={`opt-${idx}`} className="flex-1">
+                            {opt}
+                          </Label>
                         </div>
                       ))}
                     </RadioGroup>
@@ -102,7 +238,11 @@ export default function Quiz() {
               </AnimatePresence>
 
               <div className="flex justify-between mt-8">
-                <Button onClick={prevQuestion} disabled={current === 0} variant="outline">
+                <Button
+                  onClick={prevQuestion}
+                  disabled={current === 0}
+                  variant="outline"
+                >
                   Câu trước
                 </Button>
                 <Button
@@ -133,19 +273,29 @@ export default function Quiz() {
                   ✨ Hoàn thành hành trình
                 </h2>
                 <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                  Cảm ơn bạn đã đồng hành cùng <strong>Human & AI</strong>.<br />
-                  Hành trình này không chỉ là tìm hiểu về công nghệ,<br />
-                  mà còn là hành trình hiểu về <em>con người và giá trị sáng tạo</em>.
+                  Cảm ơn bạn đã đồng hành cùng <strong>Human & AI</strong>.
+                  <br />
+                  Hành trình này không chỉ là tìm hiểu về công nghệ,
+                  <br />
+                  mà còn là hành trình hiểu về{" "}
+                  <em>con người và giá trị sáng tạo</em>.
                 </p>
                 <blockquote className="italic text-gray-700 max-w-xl mx-auto border-l-4 pl-4 border-[#F7B733]">
-                  “Trong thời đại trí tuệ nhân tạo, lao động của con người không mất đi –  
-                  mà chuyển hóa thành sáng tạo, tri thức và giá trị nhân văn.”  
-                  <br /> <span className="text-sm text-gray-500">– Phân tích theo tư tưởng C. Mác</span>
+                  “Trong thời đại trí tuệ nhân tạo, lao động của con người không
+                  mất đi – mà chuyển hóa thành sáng tạo, tri thức và giá trị
+                  nhân văn.”
+                  <br />{" "}
+                  <span className="text-sm text-gray-500">
+                    – Phân tích theo tư tưởng C. Mác
+                  </span>
                 </blockquote>
 
                 <Button
                   className="mt-12 bg-gradient-to-r from-[#F45D48] to-[#F7B733] text-white shadow-lg hover:scale-105 transition-transform"
-                  onClick={() => { setFinished(false); setCurrent(0); }}
+                  onClick={() => {
+                    setFinished(false);
+                    setCurrent(0);
+                  }}
                 >
                   Làm lại
                 </Button>

@@ -9,25 +9,29 @@ const lessons = [
   {
     id: 1,
     title: "Khái niệm về lao động cụ thể và lao động trừu tượng",
-    description: "Giải thích hai khái niệm theo Mác, ví dụ minh họa bằng công việc thực tế và tự động hóa.",
+    description:
+      "Giải thích hai khái niệm theo Mác, ví dụ minh họa bằng công việc thực tế và tự động hóa.",
     path: "/content/lesson-1",
   },
   {
     id: 2,
     title: "Quá trình lao động tạo giá trị trong kỷ nguyên công nghệ số",
-    description: "Phân tích cách AI, robot, và phần mềm tham gia vào chuỗi tạo giá trị.",
+    description:
+      "Phân tích cách AI, robot, và phần mềm tham gia vào chuỗi tạo giá trị.",
     path: "/content/lesson-2",
   },
   {
     id: 3,
     title: "Trí tuệ nhân tạo và sự thay đổi bản chất lao động",
-    description: "Nêu ra sự dịch chuyển từ lao động chân tay sang lao động trí tuệ, và vấn đề giá trị thặng dư.",
+    description:
+      "Nêu ra sự dịch chuyển từ lao động chân tay sang lao động trí tuệ, và vấn đề giá trị thặng dư.",
     path: "/content/lesson-3",
   },
   {
     id: 4,
     title: "Định hướng phát triển nguồn nhân lực chất lượng cao của Việt Nam",
-    description: "Liên hệ chính sách của Việt Nam trong phát triển con người và giáo dục thời 4.0.",
+    description:
+      "Liên hệ chính sách của Việt Nam trong phát triển con người và giáo dục thời 4.0.",
     path: "/content/lesson-4",
   },
 ];
@@ -36,7 +40,7 @@ const Content = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
+
       <main className="flex-1 py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -45,7 +49,8 @@ const Content = () => {
                 Nội dung học tập
               </h1>
               <p className="text-lg text-muted-foreground">
-                Khám phá 4 bài học chuyên sâu về lý thuyết Mác và trí tuệ nhân tạo
+                Khám phá 4 bài học chuyên sâu về lý thuyết Mác và trí tuệ nhân
+                tạo
               </p>
             </div>
 
@@ -70,7 +75,7 @@ const Content = () => {
                   </Card>
                 </Link>
               ))}
-              </div>
+            </div>
 
             <div className="mt-12 text-center animate-fade-in">
               <Link to="/conclusion">

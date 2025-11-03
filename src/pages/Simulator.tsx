@@ -33,7 +33,8 @@ const Simulator = () => {
               AI vs Human Work Simulator
             </h1>
             <p className="text-lg text-blue-100">
-              So sánh sức sáng tạo và giá trị lao động giữa Con người và Trí tuệ nhân tạo
+              So sánh sức sáng tạo và giá trị lao động giữa Con người và Trí tuệ
+              nhân tạo
             </p>
           </div>
 
@@ -108,7 +109,9 @@ const Simulator = () => {
                           selected === "human" ? "bg-primary" : "bg-accent"
                         }`}
                         style={{
-                          width: `${currentData[item.key as keyof typeof currentData]}%`,
+                          width: `${
+                            currentData[item.key as keyof typeof currentData]
+                          }%`,
                         }}
                       ></div>
                     </div>
@@ -130,8 +133,12 @@ const Simulator = () => {
               <Card className="mt-10 p-6 bg-blue-950/40 border border-blue-700/40 shadow-inner">
                 <p className="text-sm leading-relaxed text-blue-100">
                   <span className="font-semibold">Giải thích: </span>
-                  Theo lý luận của C. Mác, máy móc có thể tăng năng suất lao động,
-                  nhưng <span className="font-semibold text-primary">giá trị chỉ xuất hiện khi có lao động sống</span> – tức là hoạt động sáng tạo của con người.{" "}
+                  Theo lý luận của C. Mác, máy móc có thể tăng năng suất lao
+                  động, nhưng{" "}
+                  <span className="font-semibold text-primary">
+                    giá trị chỉ xuất hiện khi có lao động sống
+                  </span>{" "}
+                  – tức là hoạt động sáng tạo của con người.{" "}
                   {selected === "human"
                     ? "Con người tạo ra giá trị mới thông qua tư duy, sáng tạo, và ý thức về mục đích."
                     : "Robot hoạt động dựa trên lập trình sẵn, không mang năng lực sáng tạo — do đó không tạo ra giá trị mới."}
@@ -153,7 +160,9 @@ const Simulator = () => {
 
           {/* Quote triết học */}
           <p className="text-center text-blue-200/60 italic mt-12">
-            “Máy móc không thay thế con người — nó khiến ta hiểu sâu hơn về bản chất sáng tạo của lao động.”<br />
+            “Máy móc không thay thế con người — nó khiến ta hiểu sâu hơn về bản
+            chất sáng tạo của lao động.”
+            <br />
             <span className="text-blue-400">— C. Mác, Tư bản, quyển I</span>
           </p>
         </div>

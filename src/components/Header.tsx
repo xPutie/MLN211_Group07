@@ -3,7 +3,7 @@ import { BookOpen } from "lucide-react";
 
 const Header = () => {
   const location = useLocation();
-  
+
   const navItems = [
     { path: "/", label: "Trang chủ" },
     { path: "/content", label: "Nội dung" },
@@ -23,7 +23,7 @@ const Header = () => {
               Human & AI
             </span>
           </Link>
-          
+
           <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
               <Link

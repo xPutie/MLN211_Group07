@@ -110,7 +110,10 @@ const Videos = () => {
       <Footer />
 
       {/* Dialog xem video */}
-      <Dialog open={!!selectedVideo} onOpenChange={() => setSelectedVideo(null)}>
+      <Dialog
+        open={!!selectedVideo}
+        onOpenChange={() => setSelectedVideo(null)}
+      >
         <DialogContent className="max-w-4xl p-0 overflow-hidden">
           {selectedVideo && (
             <div className="aspect-video w-full">

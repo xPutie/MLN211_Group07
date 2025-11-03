@@ -1,6 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&subset=vietnamese&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html {
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 /* === 🎨 Design System (Mặc định + Dark Mode) === */
 @layer base {
@@ -25,7 +33,11 @@
     --input: 30 20% 88%;
     --ring: 0 85% 65%;
     --radius: 0.75rem;
-    --hero-gradient: linear-gradient(135deg, hsl(0 85% 65%) 0%, hsl(45 94% 63%) 100%);
+    --hero-gradient: linear-gradient(
+      135deg,
+      hsl(0 85% 65%) 0%,
+      hsl(45 94% 63%) 100%
+    );
     --card-shadow: 0 4px 12px hsla(0, 85%, 65%, 0.1);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -58,6 +70,21 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* ✅ Font tiếng Việt toàn site */
+  body,
+  button,
+  input,
+  textarea,
+  select,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Be Vietnam Pro", Arial, sans-serif !important;
   }
 
   /* === 🌟 Hiệu ứng glow border cho MarxBot === */
@@ -100,15 +127,13 @@
 
   .presentation-glow {
     box-shadow: 0 0 12px rgba(120, 190, 255, 0.4),
-      0 0 24px rgba(120, 190, 255, 0.2),
-      inset 0 0 8px rgba(120, 190, 255, 0.15);
+      0 0 24px rgba(120, 190, 255, 0.2), inset 0 0 8px rgba(120, 190, 255, 0.15);
     transition: all 0.5s ease-in-out;
   }
 
   .presentation-glow:hover {
     box-shadow: 0 0 16px rgba(150, 210, 255, 0.6),
-      0 0 32px rgba(150, 210, 255, 0.3),
-      inset 0 0 10px rgba(150, 210, 255, 0.2);
+      0 0 32px rgba(150, 210, 255, 0.3), inset 0 0 10px rgba(150, 210, 255, 0.2);
   }
 
   /* Hiệu ứng xuất hiện mượt mà */
@@ -127,97 +152,129 @@
   .animate-fade-in {
     animation: fade-in 0.8s ease-out;
   }
-    /* === 🌟 Hiệu ứng glow border cho MarxBot và presentation === */
-    @keyframes glow {
-      0% {
-        box-shadow: 0 0 8px rgba(80, 180, 255, 0.2), 0 0 12px rgba(80, 180, 255, 0.1);
-      }
-  
-      50% {
-        box-shadow: 0 0 16px rgba(80, 180, 255, 0.45), 0 0 24px rgba(80, 180, 255, 0.25);
-      }
-  
-      100% {
-        box-shadow: 0 0 8px rgba(80, 180, 255, 0.2), 0 0 12px rgba(80, 180, 255, 0.1);
-      }
+  /* === 🌟 Hiệu ứng glow border cho MarxBot và presentation === */
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 8px rgba(80, 180, 255, 0.2),
+        0 0 12px rgba(80, 180, 255, 0.1);
     }
-  
-    .before\:animate-glow::before {
-      animation: glow 3s ease-in-out infinite;
+
+    50% {
+      box-shadow: 0 0 16px rgba(80, 180, 255, 0.45),
+        0 0 24px rgba(80, 180, 255, 0.25);
     }
-  
-    /* === 💡 Presentation Mode === */
-    .presentation-mode {
-      background: linear-gradient(to bottom right, #0a0f1c, #141a2a, #0a0f1c);
-      color: #f8fafc;
+
+    100% {
+      box-shadow: 0 0 8px rgba(80, 180, 255, 0.2),
+        0 0 12px rgba(80, 180, 255, 0.1);
     }
-  
-    .presentation-card {
-      background: linear-gradient(to bottom right, rgba(21, 27, 46, 0.9), rgba(16, 22, 37, 0.9));
-      border: 1px solid rgba(96, 165, 250, 0.25);
-      box-shadow: 0 0 25px rgba(80, 150, 255, 0.2);
-      transition: all 0.5s ease;
+  }
+
+  .before\:animate-glow::before {
+    animation: glow 3s ease-in-out infinite;
+  }
+
+  /* === 💡 Presentation Mode === */
+  .presentation-mode {
+    background: linear-gradient(to bottom right, #0a0f1c, #141a2a, #0a0f1c);
+    color: #f8fafc;
+  }
+
+  .presentation-card {
+    background: linear-gradient(
+      to bottom right,
+      rgba(21, 27, 46, 0.9),
+      rgba(16, 22, 37, 0.9)
+    );
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    box-shadow: 0 0 25px rgba(80, 150, 255, 0.2);
+    transition: all 0.5s ease;
+  }
+
+  .presentation-glow {
+    box-shadow: 0 0 12px rgba(120, 190, 255, 0.4),
+      0 0 24px rgba(120, 190, 255, 0.2), inset 0 0 8px rgba(120, 190, 255, 0.15);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .presentation-glow:hover {
+    box-shadow: 0 0 16px rgba(150, 210, 255, 0.6),
+      0 0 32px rgba(150, 210, 255, 0.3), inset 0 0 10px rgba(150, 210, 255, 0.2);
+  }
+
+  /* === 🌈 Gradient động (AI “thinking” background) === */
+  @keyframes gradient-move {
+    0%,
+    100% {
+      background-position: 0% 50%;
     }
-  
-    .presentation-glow {
-      box-shadow:
-        0 0 12px rgba(120, 190, 255, 0.4),
-        0 0 24px rgba(120, 190, 255, 0.2),
-        inset 0 0 8px rgba(120, 190, 255, 0.15);
-      transition: all 0.5s ease-in-out;
+
+    50% {
+      background-position: 100% 50%;
     }
-  
-    .presentation-glow:hover {
-      box-shadow:
-        0 0 16px rgba(150, 210, 255, 0.6),
-        0 0 32px rgba(150, 210, 255, 0.3),
-        inset 0 0 10px rgba(150, 210, 255, 0.2);
+  }
+
+  .ai-bg {
+    background: linear-gradient(-45deg, #1e3a8a, #0f172a, #312e81, #1e40af);
+    background-size: 300% 300%;
+    animation: gradient-move 10s ease infinite;
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
     }
-  
-    /* === 🌈 Gradient động (AI “thinking” background) === */
-    @keyframes gradient-move {
-  
-      0%,
-      100% {
-        background-position: 0% 50%;
-      }
-  
-      50% {
-        background-position: 100% 50%;
-      }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
-  
-    .ai-bg {
-      background: linear-gradient(-45deg, #1e3a8a, #0f172a, #312e81, #1e40af);
-      background-size: 300% 300%;
-      animation: gradient-move 10s ease infinite;
-    }
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(8px);
-          }
-    
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-    
-        .animate-fade-in {
-          animation: fade-in 0.8s ease-in-out;
-        }
-    
-        .presentation-glow {
-          box-shadow: 0 0 12px rgba(120, 190, 255, 0.4),
-            0 0 24px rgba(120, 190, 255, 0.2),
-            inset 0 0 8px rgba(120, 190, 255, 0.15);
-          transition: all 0.5s ease-in-out;
-        }
-    
-        .presentation-glow:hover {
-          box-shadow: 0 0 16px rgba(150, 210, 255, 0.6),
-            0 0 32px rgba(150, 210, 255, 0.3),
-            inset 0 0 10px rgba(150, 210, 255, 0.2);
-        }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-in-out;
+  }
+
+  .presentation-glow {
+    box-shadow: 0 0 12px rgba(120, 190, 255, 0.4),
+      0 0 24px rgba(120, 190, 255, 0.2), inset 0 0 8px rgba(120, 190, 255, 0.15);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .presentation-glow:hover {
+    box-shadow: 0 0 16px rgba(150, 210, 255, 0.6),
+      0 0 32px rgba(150, 210, 255, 0.3), inset 0 0 10px rgba(150, 210, 255, 0.2);
+  }
+  /* === 🩹 Fix triệt để lỗi chữ bị cắt đuôi (g, y, p, q...) === */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span {
+    line-height: 1.3 !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    overflow: visible !important;
+  }
+
+  /* Fix cho container của tiêu đề hoặc card */
+  div,
+  section,
+  header {
+    overflow: visible !important;
+  }
+
+  /* Nếu vẫn lỗi, ép thêm cho text-align center hoặc flex center */
+  .text-center,
+  .flex,
+  .items-center {
+    line-height: 1.3 !important;
+    overflow: visible !important;
+  }
 }
