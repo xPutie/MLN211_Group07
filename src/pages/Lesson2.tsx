@@ -4,183 +4,233 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 
 const Lesson2 = () => {
+  const s1 = useScrollFadeIn();
+  const s2 = useScrollFadeIn();
+  const s3 = useScrollFadeIn();
+  const s4 = useScrollFadeIn();
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-lesson-gradient text-gray-800">
       <Header />
 
-      <main className="flex-1 py-12">
+      {/* --- Background Gradient Header Transition --- */}
+      <div className="h-40 bg-gradient-to-b from-primary/10 via-background to-transparent" />
+
+      {/* === Nội dung chính === */}
+      <main className="flex-1 py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <Link to="/content">
-              <Button variant="ghost" className="mb-6 gap-2">
-                <ArrowLeft className="w-4 h-4" />
-                Quay lại
+              <Button variant="ghost" className="mb-10 gap-2">
+                <ArrowLeft className="w-4 h-4" /> Quay lại
               </Button>
             </Link>
 
             <article className="prose prose-lg max-w-none">
-              <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Bài 2: Quá trình lao động tạo giá trị trong kỷ nguyên công nghệ
-                số
-              </h1>
-
-              <Card className="p-6 mb-8 bg-muted/50">
-                <p className="text-lg font-medium mb-0">
+              {/* MỞ ĐẦU */}
+              <section
+                ref={s1.ref}
+                className={`mb-20 text-center transition-all duration-700 ${
+                  s1.visible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8"
+                }`}
+              >
+                <h1 className="text-4xl font-bold text-primary mb-4">
+                  Quá trình lao động tạo giá trị
+                </h1>
+                <p className="text-lg leading-relaxed max-w-3xl mx-auto">
                   Công nghệ số, AI và robot đang tham gia sâu vào quá trình sản
                   xuất. Vậy chúng đóng vai trò như thế nào trong chuỗi tạo giá
-                  trị?
+                  trị? Cùng Marx khám phá câu trả lời trong thời đại mới.
                 </p>
-              </Card>
+              </section>
 
-              <h2 className="text-2xl font-bold mt-8 mb-4">
-                1. Quá trình tạo giá trị theo Marx
-              </h2>
-              <p>Theo lý thuyết của Marx, giá trị hàng hóa bao gồm ba phần:</p>
+              {/* PHẦN 1 */}
+              <section
+                ref={s2.ref}
+                className={`flex flex-col md:flex-row items-center gap-8 mb-20 transition-all duration-700 ${
+                  s2.visible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8"
+                }`}
+              >
+                <div className="md:w-1/2">
+                  <img
+                    src="/images/bai2-banner.jpg"
+                    alt="Chuỗi giá trị sản xuất"
+                    className="rounded-2xl shadow-2xl hover:scale-[1.02] transition-transform duration-500"
+                  />
+                </div>
+                <div className="md:w-1/2">
+                  <h2 className="text-3xl font-bold mb-4 text-primary">
+                    1. Quá trình tạo giá trị theo Marx
+                  </h2>
+                  <p>
+                    Theo lý thuyết của Marx, giá trị hàng hóa bao gồm ba phần:
+                  </p>
+                  <Card className="p-6 my-6 bg-primary/5 border-primary/20">
+                    <ul className="space-y-3 mb-0">
+                      <li>
+                        <strong>c (tư bản bất biến):</strong> Giá trị của tư
+                        liệu sản xuất (máy móc, nguyên liệu)
+                      </li>
+                      <li>
+                        <strong>v (tư bản khả biến):</strong> Giá trị sức lao
+                        động (tiền lương công nhân)
+                      </li>
+                      <li>
+                        <strong>m (giá trị thặng dư):</strong> Phần giá trị mới
+                        do người lao động tạo ra nhưng không được trả công
+                      </li>
+                    </ul>
+                  </Card>
+                  <p>
+                    Công thức tạo giá trị: <strong>W = c + v + m</strong>
+                  </p>
+                </div>
+              </section>
 
-              <Card className="p-6 my-6 bg-primary/5 border-primary/20">
-                <ul className="space-y-3 mb-0">
-                  <li>
-                    <strong>c (tư bản bất biến):</strong> Giá trị của tư liệu
-                    sản xuất (máy móc, nguyên liệu) được chuyển vào sản phẩm
-                  </li>
-                  <li>
-                    <strong>v (tư bản khả biến):</strong> Giá trị sức lao động
-                    (tiền lương công nhân)
-                  </li>
-                  <li>
-                    <strong>m (giá trị thặng dư):</strong> Phần giá trị mới do
-                    người lao động tạo ra nhưng không được trả công
-                  </li>
-                </ul>
-              </Card>
+              {/* PHẦN 2 */}
+              <section
+                ref={s3.ref}
+                className={`flex flex-col md:flex-row-reverse items-center gap-8 mb-20 transition-all duration-700 ${
+                  s3.visible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8"
+                }`}
+              >
+                <div className="md:w-1/2">
+                  <img
+                    src="/images/How-AI-change-Robot-a1-1170x700.png"
+                    alt="AI và robot trong sản xuất"
+                    className="rounded-2xl shadow-2xl hover:scale-[1.02] transition-transform duration-500"
+                  />
+                </div>
+                <div className="md:w-1/2">
+                  <h2 className="text-3xl font-bold mb-4 text-accent">
+                    2. Vai trò của AI và robot
+                  </h2>
+                  <p>
+                    AI, robot, và phần mềm thuộc về{" "}
+                    <strong>tư bản bất biến (c)</strong>. Chúng không tạo ra giá
+                    trị mới mà chỉ chuyển giao giá trị của mình vào sản phẩm qua
+                    khấu hao.
+                  </p>
+                  <Card className="p-6 my-6 bg-accent/10 border-accent/20">
+                    <h3 className="text-xl font-semibold mb-3">
+                      Ví dụ thực tế:
+                    </h3>
+                    <p>
+                      Một robot trị giá 1 tỷ đồng, tuổi thọ 10 năm, sản xuất
+                      được 100,000 xe → mỗi xe nhận giá trị chuyển giao{" "}
+                      <strong>10,000đ</strong>.
+                    </p>
+                    <p className="mb-0">
+                      Robot không tạo thêm giá trị nào khác ngoài việc chuyển
+                      giao giá trị của bản thân.
+                    </p>
+                  </Card>
+                </div>
+              </section>
 
-              <p>
-                Công thức tạo giá trị: <strong>W = c + v + m</strong>
-              </p>
+              {/* PHẦN 3 */}
+              <section
+                ref={s4.ref}
+                className={`flex flex-col md:flex-row items-center gap-8 mb-20 transition-all duration-700 ${
+                  s4.visible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8"
+                }`}
+              >
+                <div className="md:w-1/2">
+                  <img
+                    src="/images/vai-tro-cua-ai.png"
+                    alt="Vai trò của AI trong chuỗi giá trị"
+                    className="rounded-2xl shadow-2xl hover:scale-[1.02] transition-transform duration-500"
+                  />
+                </div>
+                <div className="md:w-1/2">
+                  <h2 className="text-3xl font-bold mb-4 text-destructive">
+                    3. Nghịch lý của tự động hóa
+                  </h2>
+                  <p>
+                    Marx dự báo rằng: khi máy móc thay thế con người, tỷ lệ lao
+                    động sống giảm — dẫn đến giảm giá trị thặng dư, tức là nguồn
+                    gốc lợi nhuận.
+                  </p>
+                  <Card className="p-6 my-6 bg-destructive/10 border-destructive/20">
+                    <ul className="space-y-2 mb-0">
+                      <li>
+                        <strong>Vấn đề 1:</strong> Máy móc chỉ chuyển giao giá
+                        trị cũ
+                      </li>
+                      <li>
+                        <strong>Vấn đề 2:</strong> Giá trị mới chỉ đến từ lao
+                        động con người
+                      </li>
+                      <li>
+                        <strong>Kết quả:</strong> Nếu sản xuất tự động hoàn
+                        toàn, lợi nhuận sẽ dần biến mất
+                      </li>
+                    </ul>
+                  </Card>
+                </div>
+              </section>
 
-              <h2 className="text-2xl font-bold mt-8 mb-4">
-                2. Vai trò của AI và robot
-              </h2>
-
-              <h3 className="text-xl font-semibold mt-6 mb-3">
-                a) Tư bản bất biến (c)
-              </h3>
-              <p>
-                AI, robot, và phần mềm thuộc về <strong>tư bản bất biến</strong>
-                . Chúng:
-              </p>
-              <ul className="space-y-2">
-                <li>• Không tạo ra giá trị mới</li>
-                <li>
-                  • Chỉ chuyển giao giá trị của mình vào sản phẩm qua quá trình
-                  khấu hao
-                </li>
-                <li>• Giúp tăng năng suất lao động, giảm thời gian sản xuất</li>
-              </ul>
-
-              <Card className="p-6 my-6 bg-accent/10 border-accent/20">
-                <h3 className="text-xl font-semibold mb-3">Ví dụ thực tế:</h3>
-                <p className="mb-3">
-                  Một robot trong nhà máy ô tô trị giá 1 tỷ đồng, tuổi thọ 10
-                  năm, sản xuất được 100,000 xe:
+              {/* PHẦN 4 */}
+              <section className="text-center max-w-3xl mx-auto animate-fade-in-up">
+                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                  4. Phần mềm và dữ liệu: Giá trị mới?
+                </h2>
+                <p className="leading-relaxed mb-6">
+                  Trong kỷ nguyên số, dữ liệu và thuật toán AI được xem như “tư
+                  liệu sản xuất mới”. Nhưng giá trị của chúng vẫn bắt nguồn từ
+                  lao động con người — từ người lập trình, thu thập dữ liệu, đến
+                  người sử dụng.
                 </p>
-                <ul className="space-y-2 mb-0">
-                  <li>
-                    • Mỗi xe nhận được giá trị chuyển giao: 1 tỷ ÷ 100,000 =
-                    10,000 đồng
-                  </li>
-                  <li>
-                    • Robot không tạo thêm giá trị nào khác ngoài việc chuyển
-                    giao giá trị của bản thân
-                  </li>
-                </ul>
-              </Card>
 
-              <h3 className="text-xl font-semibold mt-6 mb-3">
-                b) Tư bản khả biến (v) và giá trị thặng dư (m)
-              </h3>
-              <p>
-                Chỉ có <strong>lao động sống</strong> (con người) mới tạo ra giá
-                trị mới (v + m). Khi AI và robot thay thế lao động:
-              </p>
-              <ul className="space-y-2">
-                <li>• Tỷ lệ c/(v+m) tăng cao</li>
-                <li>• Ít lao động sống hơn → Ít giá trị mới được tạo ra</li>
-                <li>
-                  • Doanh nghiệp phải tăng qui mô sản xuất để duy trì lợi nhuận
-                </li>
-              </ul>
+                {/* === HÌNH MINH HỌA MỚI === */}
+                {/* === HÌNH MINH HỌA MỚI (ĐÃ CHỈNH) === */}
+                <section
+                  ref={s4.ref}
+                  className={`transition-all duration-700 ${
+                    s4.visible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-8"
+                  }`}
+                >
+                  <div className="my-10 flex justify-center">
+                    <div className="relative overflow-hidden rounded-3xl shadow-2xl bg-gradient-to-b from-slate-100 via-white to-slate-50 p-4 md:p-6 max-w-4xl">
+                      <img
+                        src="/images/phanmemvadulieu.jpg"
+                        alt="Phần mềm và dữ liệu"
+                        className="rounded-2xl w-full max-w-3xl mx-auto object-contain brightness-105 contrast-105 hover:scale-[1.015] transition-transform duration-500 ease-out"
+                      />
+                    </div>
+                  </div>
+                </section>
 
-              <h2 className="text-2xl font-bold mt-8 mb-4">
-                3. Nghịch lý của tự động hóa
-              </h2>
-              <p>
-                Marx đã dự báo một nghịch lý: Tự bản gia đầu tư vào máy móc để
-                tăng năng suất và cắt giảm chi phí lao động. Nhưng:
-              </p>
+                <Card className="p-6 my-6 bg-primary/5 border-primary/20">
+                  <h3 className="text-xl font-semibold mb-3">Kết luận:</h3>
+                  <p className="mb-0">
+                    Dù công nghệ có phát triển đến đâu,{" "}
+                    <strong>lao động con người</strong> vẫn là nguồn gốc của mọi
+                    giá trị mới. AI và robot chỉ là công cụ mở rộng sức lao
+                    động, chứ không thể thay thế bản chất sáng tạo của con
+                    người.
+                  </p>
+                </Card>
+              </section>
 
-              <Card className="p-6 my-6 bg-destructive/10 border-destructive/20">
-                <ul className="space-y-2 mb-0">
-                  <li>
-                    <strong>Vấn đề 1:</strong> Máy móc chỉ chuyển giao giá trị
-                    cũ, không tạo giá trị mới
-                  </li>
-                  <li>
-                    <strong>Vấn đề 2:</strong> Giá trị thặng dư (nguồn gốc lợi
-                    nhuận) chỉ đến từ lao động sống
-                  </li>
-                  <li>
-                    <strong>Kết quả:</strong> Nếu toàn bộ quá trình sản xuất
-                    được tự động hóa, nguồn gốc lợi nhuận sẽ cạn kiệt
-                  </li>
-                </ul>
-              </Card>
-
-              <p>
-                Đây là điều mà nhiều nhà kinh tế học hiện đại gọi là{" "}
-                <strong>"xu hướng giảm tỷ suất lợi nhuận"</strong>.
-              </p>
-
-              <h2 className="text-2xl font-bold mt-8 mb-4">
-                4. Phần mềm và dữ liệu: Giá trị mới?
-              </h2>
-              <p>
-                Trong kỷ nguyên số, dữ liệu và thuật toán AI được coi là "tư
-                liệu sản xuất mới". Tuy nhiên:
-              </p>
-              <ul className="space-y-2">
-                <li>
-                  • Dữ liệu thô do người dùng tạo ra (lao động không được trả
-                  công)
-                </li>
-                <li>
-                  • Thuật toán AI được lập trình viên xây dựng (lao động trí óc)
-                </li>
-                <li>
-                  • Giá trị của phần mềm vẫn xuất phát từ lao động con người,
-                  không phải từ máy tính
-                </li>
-              </ul>
-
-              <Card className="p-6 my-6 bg-primary/5 border-primary/20">
-                <h3 className="text-xl font-semibold mb-3">Kết luận:</h3>
-                <p className="mb-0">
-                  Dù công nghệ có phát triển đến đâu,{" "}
-                  <strong>
-                    lao động con người vẫn là nguồn gốc của mọi giá trị mới
-                  </strong>
-                  . AI và robot có thể tăng năng suất, giảm chi phí, nhưng không
-                  thể thay thế vai trò sáng tạo giá trị của con người.
-                </p>
-              </Card>
-
-              <div className="mt-12 flex justify-between">
+              {/* NÚT ĐIỀU HƯỚNG */}
+              <div className="mt-20 flex justify-between animate-fade-in-up">
                 <Link to="/content/lesson-1">
                   <Button variant="outline" className="gap-2">
-                    <ArrowLeft className="w-4 h-4" />
-                    Bài trước
+                    <ArrowLeft className="w-4 h-4" /> Bài trước
                   </Button>
                 </Link>
                 <Link to="/content/lesson-3">

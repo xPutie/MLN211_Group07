@@ -74,12 +74,12 @@ const questions = [
   },
 ];
 
-const Resources = () => {
+export default function Resources() {
   const [selected, setSelected] = useState<number | null>(null);
   const [isThinking, setIsThinking] = useState(false);
   const [typedAnswer, setTypedAnswer] = useState("");
 
-  // --- HIỆU ỨNG TYPING TỰ NHIÊN ---
+  // --- Hiệu ứng typing tự nhiên ---
   useEffect(() => {
     if (selected !== null) {
       const found = questions.find((q) => q.id === selected);
@@ -98,15 +98,12 @@ const Resources = () => {
             const char = text[index];
             setTypedAnswer((prev) => prev + char);
             index++;
-
-            // pause nhẹ khi gặp dấu chấm hoặc phẩy
-            const delay = char === "." || char === "," ? 150 : 25;
+            const delay = char === "." || char === "," ? 120 : 25;
             setTimeout(typeNext, delay);
           }
         };
-
         typeNext();
-      }, 1200); // MarxBot "nghĩ" 1.2s
+      }, 900);
 
       return () => clearTimeout(thinkTimer);
     }
@@ -119,37 +116,46 @@ const Resources = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-background to-background/70">
+    <div className="min-h-screen flex flex-col bg-[#FFFCFA] text-gray-800">
       <Header />
+
       <main className="flex-1 py-12">
         <div className="container mx-auto px-4 max-w-4xl">
-          {/* --- PHẦN TÀI LIỆU --- */}
+          {/* --- HEADER --- */}
           <div className="text-center mb-14 animate-fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Tài liệu bổ sung
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#F45D48] to-[#F7B733] bg-clip-text text-transparent">
+              Tài liệu & Hội thoại triết học
             </h1>
             <p className="text-lg text-muted-foreground">
-              Tài liệu học thuật và hội thoại triết học cùng MarxBot 🤖
+              Tài liệu học thuật và đối thoại cùng{" "}
+              <span className="font-semibold text-[#F45D48]">MarxBot 🤖</span>
             </p>
           </div>
 
           {/* --- TÀI LIỆU THAM KHẢO --- */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-6">Tài liệu tham khảo</h2>
+            <h2 className="text-2xl font-semibold mb-6 text-[#F45D48]">
+              📚 Tài liệu tham khảo
+            </h2>
             <div className="grid gap-4">
               {resources.map((r, i) => (
                 <Card
                   key={i}
-                  className="p-6 border border-border/60 hover:border-primary/50 hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-card to-background/60"
+                  className="p-6 border border-gray-200 hover:border-[#F45D48]/60 hover:shadow-lg transition-all duration-300 rounded-xl bg-white"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
-                      <h3 className="font-semibold text-lg mb-2">{r.title}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        {r.description}
-                      </p>
+                      <h3 className="font-semibold text-lg text-[#F7B733] mb-2">
+                        {r.title}
+                      </h3>
+                      <p className="text-sm text-gray-600">{r.description}</p>
                     </div>
-                    <Button variant="ghost" size="icon" asChild>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      asChild
+                      className="hover:text-[#F45D48]"
+                    >
                       <a href={r.url} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="w-5 h-5" />
                       </a>
@@ -160,17 +166,16 @@ const Resources = () => {
             </div>
           </div>
 
-          {/* --- HỘI THOẠI HỌC THUẬT --- */}
-          <h2 className="text-2xl font-bold mb-8 text-center tracking-tight">
-            Hội thoại học thuật: <span className="text-primary">AI</span> và{" "}
-            <span className="text-accent">Lao động con người</span>
+          {/* --- HỘI THOẠI MARXBOT --- */}
+          <h2 className="text-2xl font-bold mb-8 text-center text-[#F45D48]">
+            Hội thoại học thuật: AI và lao động con người
           </h2>
 
-          <Card className="p-10 shadow-xl border border-border/70 bg-gradient-to-b from-card/80 to-background/60 backdrop-blur-md">
-            <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-              Chọn một câu hỏi bên dưới để thảo luận cùng{" "}
-              <span className="font-semibold text-primary">MarxBot</span> – trí
-              tuệ nhân tạo mô phỏng tư duy triết học của C. Mác.
+          <Card className="p-10 border border-gray-200 rounded-xl bg-white shadow-sm">
+            <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+              Chọn một câu hỏi bên dưới để trò chuyện cùng{" "}
+              <span className="text-[#F7B733] font-semibold">MarxBot</span> –
+              trí tuệ nhân tạo mô phỏng tư duy triết học của C. Mác.
             </p>
 
             {/* DANH SÁCH CÂU HỎI */}
@@ -182,12 +187,12 @@ const Resources = () => {
                   className={`group flex items-center gap-3 w-full p-5 rounded-xl border transition-all duration-300 
                     ${
                       selected === item.id
-                        ? "border-primary bg-primary/10 shadow-md scale-[1.02]"
-                        : "border-border hover:border-primary/40 hover:bg-muted/20"
+                        ? "border-[#F45D48] bg-[#F45D48]/10 shadow-md scale-[1.01]"
+                        : "border-gray-200 hover:border-[#F7B733]/50 hover:bg-[#FFF8EE]"
                     }`}
                 >
-                  <User className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                  <span className="text-sm md:text-base text-foreground font-medium group-hover:text-primary transition-colors">
+                  <User className="w-5 h-5 text-gray-500 group-hover:text-[#F45D48] transition-colors" />
+                  <span className="text-base text-gray-800 font-medium group-hover:text-[#F45D48] transition-colors">
                     {item.q}
                   </span>
                 </button>
@@ -198,26 +203,23 @@ const Resources = () => {
             {selected && (
               <div className="mt-6 animate-fade-in">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-full bg-primary/20 shadow-sm">
-                    <Bot className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#F7B733]/20">
+                    <Bot className="w-5 h-5 text-[#F7B733]" />
                   </div>
-                  <div
-                    className="flex-1 relative overflow-hidden rounded-2xl border border-primary/50 p-5 shadow-inner bg-gradient-to-r from-primary/5 to-accent/5
-                    before:absolute before:inset-0 before:rounded-2xl before:border-2 before:border-primary/40 before:animate-glow before:blur-[4px] before:opacity-40"
-                  >
-                    <p className="text-sm text-muted-foreground font-semibold mb-1">
+                  <div className="flex-1 rounded-xl border border-[#F7B733]/50 p-5 bg-[#FFF8EE]">
+                    <p className="text-sm text-[#F45D48]/80 font-semibold mb-2">
                       MarxBot trả lời:
                     </p>
                     {isThinking ? (
-                      <p className="italic text-muted-foreground flex items-center gap-2">
-                        <Loader2 className="w-4 h-4 animate-spin" />
+                      <p className="italic text-gray-600 flex items-center gap-2">
+                        <Loader2 className="w-4 h-4 animate-spin text-[#F7B733]" />
                         MarxBot đang suy nghĩ
                         <span className="animate-pulse ml-1">▍</span>
                       </p>
                     ) : (
-                      <p className="text-base leading-relaxed text-foreground font-serif whitespace-pre-line">
+                      <p className="text-base leading-relaxed text-gray-800 font-serif whitespace-pre-line">
                         {typedAnswer}
-                        <span className="animate-pulse ml-1 text-primary">
+                        <span className="animate-pulse ml-1 text-[#F45D48]">
                           ▍
                         </span>
                       </p>
@@ -231,9 +233,9 @@ const Resources = () => {
             {selected && !isThinking && (
               <div className="flex justify-center mt-10">
                 <Button
-                  variant="ghost"
+                  variant="outline"
                   onClick={handleReset}
-                  className="gap-2 border border-border/60 hover:bg-primary/10"
+                  className="gap-2 border border-[#F45D48]/50 text-[#F45D48] hover:bg-[#F45D48]/10"
                 >
                   <RotateCcw className="w-4 h-4" /> Chọn câu hỏi khác
                 </Button>
@@ -241,11 +243,11 @@ const Resources = () => {
             )}
 
             {/* TRÍCH DẪN */}
-            <div className="mt-10 pt-6 border-t border-border/60">
-              <p className="text-center text-base italic text-muted-foreground leading-relaxed">
+            <div className="mt-10 pt-6 border-t border-gray-200">
+              <p className="text-center text-base italic text-gray-600 leading-relaxed">
                 “Máy móc không thay thế con người — nó khiến ta nhận ra sâu sắc
                 hơn bản chất sáng tạo của lao động.”
-                <span className="block mt-1 text-sm text-accent">
+                <span className="block mt-1 text-sm text-[#F7B733]">
                   – Diễn giải tư tưởng C. Mác
                 </span>
               </p>
@@ -253,9 +255,8 @@ const Resources = () => {
           </Card>
         </div>
       </main>
+
       <Footer />
     </div>
   );
-};
-
-export default Resources;
+}

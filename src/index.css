@@ -2,6 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 html {
   font-family: "Be Vietnam Pro", Arial, sans-serif;
   font-synthesis: none;
@@ -87,18 +88,16 @@ html {
     font-family: "Be Vietnam Pro", Arial, sans-serif !important;
   }
 
-  /* === 🌟 Hiệu ứng glow border cho MarxBot === */
+  /* === 🌟 Hiệu ứng glow border === */
   @keyframes glow {
     0% {
       box-shadow: 0 0 8px rgba(80, 180, 255, 0.2),
         0 0 12px rgba(80, 180, 255, 0.1);
     }
-
     50% {
       box-shadow: 0 0 16px rgba(80, 180, 255, 0.45),
         0 0 24px rgba(80, 180, 255, 0.25);
     }
-
     100% {
       box-shadow: 0 0 8px rgba(80, 180, 255, 0.2),
         0 0 12px rgba(80, 180, 255, 0.1);
@@ -110,7 +109,7 @@ html {
   }
 }
 
-/* === 💡 AI Presentation Mode (ngoài layer base) === */
+/* === 💡 AI Presentation Mode & Animation === */
 @layer utilities {
   .presentation-mode {
     @apply bg-gradient-to-br from-[#0a0f1c] via-[#141a2a] to-[#0a0f1c] text-white;
@@ -136,116 +135,42 @@ html {
       0 0 32px rgba(150, 210, 255, 0.3), inset 0 0 10px rgba(150, 210, 255, 0.2);
   }
 
-  /* Hiệu ứng xuất hiện mượt mà */
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-in {
-    animation: fade-in 0.8s ease-out;
-  }
-  /* === 🌟 Hiệu ứng glow border cho MarxBot và presentation === */
-  @keyframes glow {
+  /* === 🌈 Gradient nền động cho Lesson1 === */
+  @keyframes gradient-flow {
     0% {
-      box-shadow: 0 0 8px rgba(80, 180, 255, 0.2),
-        0 0 12px rgba(80, 180, 255, 0.1);
-    }
-
-    50% {
-      box-shadow: 0 0 16px rgba(80, 180, 255, 0.45),
-        0 0 24px rgba(80, 180, 255, 0.25);
-    }
-
-    100% {
-      box-shadow: 0 0 8px rgba(80, 180, 255, 0.2),
-        0 0 12px rgba(80, 180, 255, 0.1);
-    }
-  }
-
-  .before\:animate-glow::before {
-    animation: glow 3s ease-in-out infinite;
-  }
-
-  /* === 💡 Presentation Mode === */
-  .presentation-mode {
-    background: linear-gradient(to bottom right, #0a0f1c, #141a2a, #0a0f1c);
-    color: #f8fafc;
-  }
-
-  .presentation-card {
-    background: linear-gradient(
-      to bottom right,
-      rgba(21, 27, 46, 0.9),
-      rgba(16, 22, 37, 0.9)
-    );
-    border: 1px solid rgba(96, 165, 250, 0.25);
-    box-shadow: 0 0 25px rgba(80, 150, 255, 0.2);
-    transition: all 0.5s ease;
-  }
-
-  .presentation-glow {
-    box-shadow: 0 0 12px rgba(120, 190, 255, 0.4),
-      0 0 24px rgba(120, 190, 255, 0.2), inset 0 0 8px rgba(120, 190, 255, 0.15);
-    transition: all 0.5s ease-in-out;
-  }
-
-  .presentation-glow:hover {
-    box-shadow: 0 0 16px rgba(150, 210, 255, 0.6),
-      0 0 32px rgba(150, 210, 255, 0.3), inset 0 0 10px rgba(150, 210, 255, 0.2);
-  }
-
-  /* === 🌈 Gradient động (AI “thinking” background) === */
-  @keyframes gradient-move {
-    0%,
-    100% {
       background-position: 0% 50%;
     }
-
     50% {
       background-position: 100% 50%;
     }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 
-  .ai-bg {
-    background: linear-gradient(-45deg, #1e3a8a, #0f172a, #312e81, #1e40af);
+  .bg-lesson-gradient {
+    background: linear-gradient(120deg, #f9fafb, #f3f6fa, #edf2f8, #f9fafb);
     background-size: 300% 300%;
-    animation: gradient-move 10s ease infinite;
+    animation: gradient-flow 18s ease infinite;
   }
-  @keyframes fade-in {
+
+  /* === ✨ Fade-in animation === */
+  @keyframes fade-in-up {
     from {
       opacity: 0;
-      transform: translateY(8px);
+      transform: translateY(30px);
     }
-
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
 
-  .animate-fade-in {
-    animation: fade-in 0.8s ease-in-out;
+  .animate-fade-in-up {
+    animation: fade-in-up 0.9s ease-out both;
   }
 
-  .presentation-glow {
-    box-shadow: 0 0 12px rgba(120, 190, 255, 0.4),
-      0 0 24px rgba(120, 190, 255, 0.2), inset 0 0 8px rgba(120, 190, 255, 0.15);
-    transition: all 0.5s ease-in-out;
-  }
-
-  .presentation-glow:hover {
-    box-shadow: 0 0 16px rgba(150, 210, 255, 0.6),
-      0 0 32px rgba(150, 210, 255, 0.3), inset 0 0 10px rgba(150, 210, 255, 0.2);
-  }
-  /* === 🩹 Fix triệt để lỗi chữ bị cắt đuôi (g, y, p, q...) === */
+  /* === 🩹 Fix lỗi cắt chữ (g, y, p, q...) === */
   h1,
   h2,
   h3,
@@ -263,14 +188,12 @@ html {
     overflow: visible !important;
   }
 
-  /* Fix cho container của tiêu đề hoặc card */
   div,
   section,
   header {
     overflow: visible !important;
   }
 
-  /* Nếu vẫn lỗi, ép thêm cho text-align center hoặc flex center */
   .text-center,
   .flex,
   .items-center {

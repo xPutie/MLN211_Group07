@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -179,24 +179,45 @@ export default function Quiz() {
 
   const progress = Math.round(((current + 1) / questions.length) * 100);
 
+  // animation setup
+  const slideVariants: Variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 100 : -100,
+      opacity: 0,
+      scale: 0.95,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
+    },
+    exit: (direction: number) => ({
+      x: direction > 0 ? -100 : 100,
+      opacity: 0,
+      scale: 0.95,
+      transition: { duration: 0.3 },
+    }),
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-[#FFFCFA] relative overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#FFF8F2] via-[#FFFDFB] to-[#FFF3E8] relative overflow-hidden">
       <Header />
 
       <main className="flex-1 py-12 relative z-10">
         <div className="container mx-auto px-4 max-w-3xl">
           {!finished ? (
             <>
-              <div className="mb-8">
-                <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-[#F45D48] to-[#F7B733] bg-clip-text text-transparent">
+              <div className="mb-8 text-center">
+                <h1 className="text-4xl font-bold bg-gradient-to-r from-[#F45D48] to-[#F7B733] bg-clip-text text-transparent drop-shadow-sm">
                   Ôn tập kiến thức
                 </h1>
-                <p className="text-center text-muted-foreground mt-2">
+                <p className="text-muted-foreground mt-2">
                   Câu {current + 1} / {questions.length}
                 </p>
-                <div className="w-full bg-muted h-2 rounded-full mt-4 overflow-hidden">
+                <div className="w-full bg-gray-200 h-2 rounded-full mt-4 overflow-hidden">
                   <div
-                    className="h-2 bg-gradient-to-r from-[#F45D48] to-[#F7B733] transition-all"
+                    className="h-2 bg-gradient-to-r from-[#F45D48] to-[#F7B733] transition-all duration-300"
                     style={{ width: `${progress}%` }}
                   ></div>
                 </div>
@@ -205,13 +226,14 @@ export default function Quiz() {
               <AnimatePresence mode="wait" custom={direction}>
                 <motion.div
                   key={current}
-                  initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  custom={direction}
                 >
-                  <Card className="p-6 shadow-sm">
-                    <h2 className="text-xl font-semibold mb-4">
+                  <Card className="p-6 shadow-md border border-orange-100 rounded-2xl backdrop-blur-sm bg-white/90">
+                    <h2 className="text-xl font-semibold mb-4 text-gray-800">
                       {questions[current].question}
                     </h2>
                     <RadioGroup
@@ -221,13 +243,16 @@ export default function Quiz() {
                       {questions[current].options.map((opt, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center space-x-2 p-3 rounded-lg hover:bg-muted cursor-pointer"
+                          className="flex items-center space-x-2 p-3 rounded-lg hover:bg-orange-50 transition cursor-pointer"
                         >
                           <RadioGroupItem
                             value={idx.toString()}
                             id={`opt-${idx}`}
                           />
-                          <Label htmlFor={`opt-${idx}`} className="flex-1">
+                          <Label
+                            htmlFor={`opt-${idx}`}
+                            className="flex-1 text-gray-700"
+                          >
                             {opt}
                           </Label>
                         </div>
@@ -247,8 +272,7 @@ export default function Quiz() {
                 </Button>
                 <Button
                   onClick={nextQuestion}
-                  variant="default"
-                  className="bg-gradient-to-r from-[#F45D48] to-[#F7B733] text-white shadow-md"
+                  className="bg-gradient-to-r from-[#F45D48] to-[#F7B733] text-white font-medium shadow-md hover:shadow-lg hover:scale-105 transition-transform"
                 >
                   {current < questions.length - 1 ? "Câu tiếp" : "Hoàn thành"}
                 </Button>
@@ -256,9 +280,8 @@ export default function Quiz() {
             </>
           ) : (
             <>
-              {/* 🌤 Elegant Glow Mode */}
               <motion.div
-                className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,200,150,0.3),transparent_70%),radial-gradient(circle_at_80%_70%,rgba(250,120,90,0.2),transparent_70%)] animate-gradientMove"
+                className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,200,150,0.25),transparent_70%),radial-gradient(circle_at_80%_70%,rgba(250,120,90,0.2),transparent_70%)] animate-gradientMove"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.5 }}
@@ -301,7 +324,6 @@ export default function Quiz() {
                 </Button>
               </motion.div>
 
-              {/* 🌈 CSS động gradient */}
               <style>{`
                 @keyframes gradientMove {
                   0% { background-position: 0% 50%; }

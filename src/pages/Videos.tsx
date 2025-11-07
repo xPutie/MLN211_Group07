@@ -45,58 +45,59 @@ const Videos = () => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-sky-50 via-white to-indigo-50">
       <Header />
 
-      <main className="flex-1 py-12">
+      <main className="flex-1 py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             {/* Header Section */}
-            <div className="text-center mb-12 animate-fade-in">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <div className="text-center mb-14 animate-fade-in">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-yellow-500 bg-clip-text text-transparent">
                 Video giảng dạy
               </h1>
               <p className="text-lg text-muted-foreground">
-                Video minh họa sinh động về lao động và trí tuệ nhân tạo
+                Những thước phim truyền cảm hứng về lao động, công nghệ và trí
+                tuệ nhân tạo
               </p>
             </div>
 
             {/* Video Cards */}
-            <div className="grid md:grid-cols-2 gap-6 animate-slide-up">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
               {videos.map((video) => (
                 <Card
                   key={video.id}
-                  className="overflow-hidden group hover:shadow-xl transition-all duration-300"
+                  className="overflow-hidden group flex flex-col bg-white/90 backdrop-blur-sm border border-slate-200 rounded-2xl shadow-md hover:shadow-[0_0_25px_rgba(56,189,248,0.25)] transition-all duration-500"
                 >
+                  {/* Thumbnail */}
                   <div className="relative aspect-video overflow-hidden">
                     <img
                       src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
                       alt={video.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                       <Button
                         variant="hero"
                         size="lg"
-                        className="gap-2"
+                        className="gap-2 rounded-full shadow-lg bg-primary hover:scale-105 hover:shadow-[0_0_20px_rgba(56,189,248,0.5)] transition-all"
                         onClick={() => setSelectedVideo(video.youtubeId)}
                       >
                         <Play className="w-5 h-5" />
                         Xem video
                       </Button>
                     </div>
-
-                    <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-sm">
+                    <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs font-medium">
                       {video.duration}
                     </div>
                   </div>
 
-                  <div className="p-6">
-                    <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                  {/* Info */}
+                  <div className="flex flex-col justify-between flex-1 p-5">
+                    <h3 className="font-semibold text-lg mb-3 leading-snug hover:text-primary transition-colors line-clamp-2">
                       {video.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
                       {video.description}
                     </p>
                   </div>
@@ -114,7 +115,7 @@ const Videos = () => {
         open={!!selectedVideo}
         onOpenChange={() => setSelectedVideo(null)}
       >
-        <DialogContent className="max-w-4xl p-0 overflow-hidden">
+        <DialogContent className="max-w-5xl w-full p-0 bg-black overflow-hidden rounded-2xl shadow-2xl">
           {selectedVideo && (
             <div className="aspect-video w-full">
               <iframe
