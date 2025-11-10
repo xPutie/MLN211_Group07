@@ -11,32 +11,56 @@ const resources = [
     title: "Tư bản – Karl Marx (Das Kapital)",
     description:
       "Tác phẩm kinh điển trình bày lý luận giá trị, lao động và giá trị thặng dư.",
-    url: "https://www.marxists.org/archive/marx/works/download/pdf/Capital-Volume-I.pdf",
+    url: "https://www.phantichkinhte123.com/2021/04/oc-lai-tu-ban-i.html",
   },
   {
     title: "Chiến lược phát triển nguồn nhân lực Việt Nam đến năm 2030",
     description:
       "Văn kiện chính thức của Chính phủ Việt Nam về phát triển nhân lực trong thời đại 4.0.",
-    url: "https://thuvienphapluat.vn/van-ban/bo-may-hanh-chinh/Quyet-dinh-176-QD-TTg-2021-Chien-luoc-phat-trien-nhan-luc-Viet-Nam-2030-tam-nhin-2045-470207.aspx",
+    url: "https://hvctcand.bocongan.gov.vn/tin-tuc/tin-tuc-khac/nghi-quyet-cua-bo-chinh-tri-ve-tham-gia-cuoc-cach-mang-cong-nghiep-4-0-1016",
   },
   {
     title:
       "Tác động của trí tuệ nhân tạo đến việc làm và chính sách xã hội ở Việt Nam",
     description: "Phân tích học thuật về AI và thị trường lao động Việt Nam.",
-    url: "https://vjol.info.vn/index.php/vjss/article/view/64055",
+    url: "https://dangcongsan.vn/hocvienchinhtri/xay-dung-dang/su-phat-trien-va-tac-dong-cua-tri-tue-nhan-tao-ai-nhung-co-hoi-va-thach-thuc-dat-ra-trong-cong-tac-quan-tri-quoc-gia.html",
   },
   {
     title:
       "Cách mạng công nghiệp 4.0 và vấn đề con người trong triết học Mác – Lênin",
     description:
       "Liên hệ lý luận Mác với bản chất lao động trong thời đại tự động hóa.",
-    url: "https://lyluanchinhtri.vn/home/index.php/thuc-tien/item/4226",
+    url: "http://m.tapchikhxh.vass.gov.vn/mot-so-van-de-triet-hoc-cua-cuoc-cach-mang-cong-nghiep-lan-thu-tu-n50081.html",
   },
   {
     title:
       "Trí tuệ nhân tạo và phát triển nguồn nhân lực chất lượng cao ở Việt Nam",
     description: "Vai trò giáo dục và sáng tạo trong bối cảnh AI phát triển.",
-    url: "https://tapchigiaoduc.moet.gov.vn/tap-chi-giao-duc/tri-tue-nhan-tao-va-phat-trien-nguon-nhan-luc-chat-luong-cao-o-viet-nam-6266.html",
+    url: "https://nhandan.vn/phat-trien-nguon-nhan-luc-trong-thoi-dai-tri-tue-nhan-tao-post913739.html",
+  },
+  {
+    title: "Giá trị bền vững và ý nghĩa thời đại của chủ nghĩa Mác - Lênin",
+    description:
+      "Giá trị bền vững và ý nghĩa thời đại của chủ nghĩa Mác - Lênin.",
+    url: "https://lyluanchinhtri.vn/gia-tri-ben-vung-va-y-nghia-thoi-dai-cua-chu-nghia-mac-lenin-387.html",
+  },
+  {
+    title: "Xây dựng nguồn nhân lực cách mạng 4.0: Nhiều thách thức",
+    description: "Xây dựng nguồn nhân lực cách mạng 4.0: Nhiều thách thức",
+    url: "https://mst.gov.vn/xay-dung-nguon-nhan-luc-cach-mang-40-nhieu-thach-thuc-197149808.htm",
+  },
+  {
+    title: "Tự động hóa, trí tuệ nhân tạo và sự biến đổi của quan hệ lao động",
+    description:
+      "Phân tích ảnh hưởng của AI và robot hóa đến người lao động, việc làm và các vấn đề xã hội theo góc nhìn triết học Mác – Lênin.",
+    url: "https://lyluanchinhtri.vn/gia-tri-ben-vung-va-y-nghia-thoi-dai-cua-chu-nghia-mac-lenin-387.html",
+  },
+  {
+    title:
+      "Giá trị nhân văn trong tư tưởng Mác – Lênin và định hướng phát triển con người Việt Nam",
+    description:
+      "Khám phá cách lý luận Mác – Lênin soi sáng cho việc xây dựng con người toàn diện trong xã hội hiện đại.",
+    url: "https://www.tapchicongsan.org.vn/web/guest/dau-tranh-phan-bac-cac-luan-dieu-sai-trai-thu-dich/chi-tiet/-/asset_publisher/YqSB2JpnYto9/content/gia-tri-suc-song-cua-chu-nghia-mac-le-nin-tu-tuong-ho-chi-minh-trong-thoi-dai-ngay-nay-va-mot-so-yeu-cau-dat-ra-doi-voi-cong-tac-bao-ve-nen-tang-tu-tu",
   },
 ];
 

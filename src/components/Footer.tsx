@@ -36,7 +36,7 @@ const Footer = () => {
         <p className="text-center mt-6 text-xs text-gray-600/80">
           © {new Date().getFullYear()} — Designed & Curated by{" "}
           <span className="font-semibold text-gray-900 hover:text-[#F7B733] transition-colors">
-            Group 7 MLN211
+            Group 7-MLN211
           </span>
         </p>
       </div>

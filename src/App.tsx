@@ -16,6 +16,8 @@ import Lesson4 from "./pages/Lesson4";
 import Conclusion from "./pages/Conclusion";
 import NotFound from "./pages/NotFound";
 import Discussion from "./pages/Discussion";
+import ScrollToTop from "@/components/ScrollToTop";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -24,19 +26,25 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        {/* ✅ Thêm dòng này để auto scroll khi đổi route */}
+        <ScrollToTop />
+
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/content" element={<Content />} />
+
           <Route path="/content/lesson-1" element={<Lesson1 />} />
           <Route path="/content/lesson-2" element={<Lesson2 />} />
           <Route path="/content/lesson-3" element={<Lesson3 />} />
           <Route path="/content/lesson-4" element={<Lesson4 />} />
+
           <Route path="/videos" element={<Videos />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/simulator" element={<Simulator />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/conclusion" element={<Conclusion />} />
           <Route path="/discussion" element={<Discussion />} />
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
